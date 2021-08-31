@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_point_tab_bar/pointTabIndicator.dart';
 import 'package:muslimapp/BottomSheetInfo.dart';
 import 'package:muslimapp/HomeScreen.dart';
+import 'package:muslimapp/PrayerTimes.dart';
 import 'package:muslimapp/WerdScreen.dart';
 
 class TabScreen extends StatefulWidget {
@@ -41,10 +42,20 @@ class _TabScreenState extends State<TabScreen>
             color: Color.fromRGBO(250, 215, 160, 1),
           ),
         ),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10, top: 7, bottom: 7, right: 7),
-          child: Image.asset("images/quran (3).png"),
+        leading: GestureDetector(
+          onTap: (){
+            showModalBottomSheet(
+                context: context,
+                builder: (BuildContext context) {
+                  return PrayerTimes();
+                });
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10, top: 7, bottom: 7, right: 7),
+            child: Image.asset("images/quran (3).png"),
+          ),
         ),
+
         actions: [
           IconButton(
               onPressed: () {
